@@ -8,8 +8,16 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <style>
+      line {
+      //stroke-width: 5;
+      fill: none;
+      }
+    </style>
   </head>
   <body>
+    
     <section class="page-header">
       <h1 class="project-name">Data Intervention</h1>
       <h2 class="project-tagline">Path toward more responsible investing and business practices</h2>
@@ -17,15 +25,18 @@
 
     <section class="main-content">
       <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Responsible Investing</h3>
+<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
+Responsible Investing</h3>
 
-<p></p>
+<p>Conventional investment strategies that take corporate ESG performance into account
+</p>
 
 <h3>
 <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
 Economic Model for Regulating Businesses</h3>
 
-<p></p>
+<p>Business activities may have externalities, harms that are not accounted for in the price.</p>
+<div id="externality"></div>
 
 <h3>
 <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
@@ -53,6 +64,54 @@ Data Intervention Tools</h3>
 
     </section>
 
+    <script>
+      var svgCont = d3.select("#externality").append("svg")
+      .attr("width", 700)
+      .attr("height", 500);
+
+      var demand = svgCont.append("line")
+      .attr("x1", 50)
+      .attr("y1", 80)
+      .attr("x2", 650)
+      .attr("y2", 420)
+      .attr("stroke-width", 5)
+      .attr("stroke", "#888");
+
+      var supply = svgCont.append("line")
+      .attr("x1", 50)
+      .attr("y1", 420)
+      .attr("x2", 620)
+      .attr("y2", 120)
+      .attr("stroke-width", 5)
+      .attr("stroke", "#aa6765");
+
+       var supplyex = svgCont.append("line")
+      .attr("x1", 50)
+      .attr("y1", 350)
+      .attr("x2", 620)
+      .attr("y2", 50)
+      .style("stroke-dasharray", ("3, 3"))
+      .attr("stroke-width", 5)
+      .attr("stroke", "#aa6765");
+
+      var yaxis = svgCont.append("line")
+      .attr("x1", 10)
+      .attr("y1", 10)
+      .attr("x2", 10)
+      .attr("y2", 490)
+      .attr("stroke-width", 3)
+      .attr("stroke", "#bbb");
+      
+      var xaxis = svgCont.append("line")
+      .attr("x1", 10)
+      .attr("y1", 490)
+      .attr("x2", 690)
+      .attr("y2", 490)
+      .attr("stroke-width", 3)
+      .attr("stroke", "#bbb");
+ 
+
+    </script>
   
   </body>
 </html>
