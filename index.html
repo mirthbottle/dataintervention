@@ -49,13 +49,6 @@ Data Intervention Tools</h3>
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
 
-<p>You can <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/#mentioning-users-and-teams" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
-
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/mirthbottle/dataintervention">Data Intervention</a> is maintained by <a href="https://github.com/mirthbottle">mirthbottle</a>.</span>
 
@@ -94,19 +87,48 @@ Data Intervention Tools</h3>
       .attr("stroke-width", 5)
       .attr("stroke", "#aa6765");
 
+       var quantity = svgCont.append("line")
+      .attr("x1", 361)
+      .attr("y1", 258)
+      .attr("x2", 361)
+      .attr("y2", 475)
+      .attr("stroke-width", 6)
+      .attr("stroke", "#D5B4B3");
+
+      var quantityex = svgCont.append("line")
+      .attr("x1", 300)
+      .attr("y1", 220)
+      .attr("x2", 300)
+      .attr("y2", 475)
+      .style("stroke-dasharray", ("3, 3"))
+      .attr("stroke-width", 6)
+      .attr("stroke", "#D5B4B3");
+
       var yaxis = svgCont.append("line")
-      .attr("x1", 10)
-      .attr("y1", 10)
-      .attr("x2", 10)
-      .attr("y2", 490)
+      .attr("x1", 30)
+      .attr("y1", 40)
+      .attr("x2", 30)
+      .attr("y2", 470)
       .attr("stroke-width", 3)
       .attr("stroke", "#bbb");
+  
+      svgCont.append("text")
+      .attr("transform", "translate(0,20)")
+      .attr("dy", "14px")
+      .style("fill", "#639B3D")
+      .text("Price");
+
+      svgCont.append("text")
+      .attr("transform", "translate(620,475)")
+      .attr("dy", "14px")
+      .style("fill", "#4C3D99")
+      .text("Quantity");
       
       var xaxis = svgCont.append("line")
-      .attr("x1", 10)
-      .attr("y1", 490)
+      .attr("x1", 30)
+      .attr("y1", 470)
       .attr("x2", 690)
-      .attr("y2", 490)
+      .attr("y2", 470)
       .attr("stroke-width", 3)
       .attr("stroke", "#bbb");
  
