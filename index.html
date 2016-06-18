@@ -104,6 +104,19 @@ Data Intervention Tools</h3>
       .attr("stroke-width", 6)
       .attr("stroke", "#D5B4B3");
 
+      svgCont.append("text")
+      .attr("transform", "translate(352,494)")
+      .style("font-size", "24px")
+      .style("fill", "#D5B4B3")
+      .style("font-weight", "bold")
+      .text("Q");
+
+      svgCont.append("text")
+      .attr("transform", "translate(289,494)")
+      .style("font-size", "24px")
+      .style("fill", "#D5B4B3")
+      .style("font-weight", "bold")
+      .text("Q*");
 
       var price = svgCont.append("line")
       .attr("x1", 28)
@@ -122,6 +135,19 @@ Data Intervention Tools</h3>
       .attr("stroke-width", 6)
       .attr("stroke", "#639B3D");
 
+      svgCont.append("text")
+      .attr("transform", "translate(0,266)")
+      .style("font-size", "24px")
+      .style("fill", "#639B3D")
+      .style("font-weight", "bold")
+      .text("P");
+
+      svgCont.append("text")
+      .attr("transform", "translate(0,226)")
+      .style("font-size", "24px")
+      .style("fill", "#639B3D")
+      .style("font-weight", "bold")
+      .text("P*");
 
       var yaxis = svgCont.append("line")
       .attr("x1", 30)
@@ -130,18 +156,6 @@ Data Intervention Tools</h3>
       .attr("y2", 470)
       .attr("stroke-width", 3)
       .attr("stroke", "#bbb");
-  
-      svgCont.append("text")
-      .attr("transform", "translate(0,20)")
-      .attr("dy", "14px")
-      .style("fill", "#639B3D")
-      .text("Price");
-
-      svgCont.append("text")
-      .attr("transform", "translate(620,475)")
-      .attr("dy", "14px")
-      .style("fill", "#4C3D99")
-      .text("Quantity");
       
       var xaxis = svgCont.append("line")
       .attr("x1", 30)
@@ -151,6 +165,20 @@ Data Intervention Tools</h3>
       .attr("stroke-width", 3)
       .attr("stroke", "#bbb");
  
+      
+      svgCont.append("text")
+      .attr("transform", "translate(0,20)")
+      .attr("dy", "14px")
+      .style("fill", "#639B3D")
+      .style("font-weight", "bold")
+      .text("Price");
+
+      svgCont.append("text")
+      .attr("transform", "translate(620,475)")
+      .attr("dy", "14px")
+      .style("fill", "#4C3D99")
+      .style("font-weight", "bold")
+      .text("Quantity");
 
     </script>
   
