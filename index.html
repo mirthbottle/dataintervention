@@ -78,7 +78,7 @@ Data Intervention Tools</h3>
       .attr("stroke-width", 5)
       .attr("stroke", "#aa6765");
 
-       var supplyex = svgCont.append("line")
+      var supplyex = svgCont.append("line")
       .attr("x1", 50)
       .attr("y1", 350)
       .attr("x2", 620)
@@ -87,7 +87,7 @@ Data Intervention Tools</h3>
       .attr("stroke-width", 5)
       .attr("stroke", "#aa6765");
 
-       var quantity = svgCont.append("line")
+      var quantity = svgCont.append("line")
       .attr("x1", 361)
       .attr("y1", 258)
       .attr("x2", 361)
@@ -96,13 +96,32 @@ Data Intervention Tools</h3>
       .attr("stroke", "#D5B4B3");
 
       var quantityex = svgCont.append("line")
-      .attr("x1", 300)
+      .attr("x1", 298)
       .attr("y1", 220)
-      .attr("x2", 300)
+      .attr("x2", 298)
       .attr("y2", 475)
       .style("stroke-dasharray", ("3, 3"))
       .attr("stroke-width", 6)
       .attr("stroke", "#D5B4B3");
+
+
+      var price = svgCont.append("line")
+      .attr("x1", 28)
+      .attr("y1", 258)
+      .attr("x2", 361)
+      .attr("y2", 258)
+      .attr("stroke-width", 6)
+      .attr("stroke", "#639B3D");
+
+      var priceex = svgCont.append("line")
+      .attr("x1", 28)
+      .attr("y1", 220)
+      .attr("x2", 298)
+      .attr("y2", 220)
+      .style("stroke-dasharray", ("3, 3"))
+      .attr("stroke-width", 6)
+      .attr("stroke", "#639B3D");
+
 
       var yaxis = svgCont.append("line")
       .attr("x1", 30)
