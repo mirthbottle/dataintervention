@@ -8,8 +8,12 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+    </script>
     <script src="/javascripts/d3.min.js"></script>
     <script src="/javascripts/marketchart.js"></script>
+    
+    
   </head>
   <body>
 
@@ -100,12 +104,21 @@ Data Intervention</h3>
       progress++;
       };
 
-      document.getElementById("pagehead").onclick = function(){
-      slides = document.getElementsByClassName("slide");
-      for(var i=0; i< slides.length; i++){
-		      slides[i].setAttribute("margin-bottom", "20px");
-		      }
+      var slidemode = 0;
+      $('#pagehead').on("click", function(){
+      if (slidemode==0){
+      slidemode = 1;
+      $(".slide").css("margin-top","300px");
+      $(".slide").css("margin-bottom","300px");
       }
+      else{
+      $(".slide").css("margin-top","30px");
+      $(".slide").css("margin-bottom","30px");
+      $(".slide").css("height","auto");
+      slidemode = 0;
+      }
+      });
+      
     </script>
   
   </body>
