@@ -1,0 +1,7 @@
+var demand = svgCont.append("line")
+  .attr("x1", 50)
+  .attr("y1", 80)
+  .attr("x2", 650)
+  .attr("y2", 420)
+  .attr("stroke-width", 5)
+  .attr("stroke", "#888");

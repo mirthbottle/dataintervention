@@ -8,47 +8,68 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <script src="//d3js.org/d3.v3.min.js"></script>
-    <style>
-      line {
-      //stroke-width: 5;
-      fill: none;
-      }
-    </style>
+    <script src="/javascripts/d3.min.js"></script>
+    <script src="/javascripts/marketchart.js"></script>
   </head>
   <body>
-    
-    <section class="page-header">
+
+    <section id="pagehead" class="page-header">
       <h1 class="project-name">Data Intervention</h1>
       <h2 class="project-tagline">Path toward more responsible investing and business practices</h2>
     </section>
 
     <section class="main-content">
+<div class="slide">
+
       <h3>
 <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
 Responsible Investing</h3>
 
-<p>Conventional investment strategies that take corporate ESG performance into account
+<p>Conventional investment strategies that take corporate ESG performance into account.
 </p>
+<p>Regulation is hard.</p>
+<p>Some investors are taking it on.</p>
+</div>
+<div class="slide">
+<h3> Alternative to Policy Intervention</h3>
 
+<p>Command and control regulation</p>
+<p>Market-based regulation</p>
+</div>
+
+<div class="slide">
 <h3>
 <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
 Economic Model for Regulating Businesses</h3>
 
 <p>Business activities may have externalities, harms that are not accounted for in the price.</p>
 <div id="externality"></div>
+</div>
 
+
+<div class="slide">
+<h3>Standard Interventions Are Always Inefficient</h3>
+
+<p>Planner can never know price, quantity, or solution</p>
+<p>Curves change constantly over time</p>
+<p>Still need engagement with corporate leadership</p>
+</div>
+<div class="slide">
 <h3>
 <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
-Data Intervention Tools</h3>
+Data Intervention</h3>
 
-<p>Cheap storage and data infrastructure tools.</p>
 <p>Machine learning to get information from data</p>
 <p>Natural language processing to get information from text</p>
+<p>Cheap storage</p>
 
-<h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
+</div>
+<div class="slide">
+<h3>Investors Evaluate Companies Anyway</h3>
+<p>Data infrastructure is a fixed cost that investors already pay.</p>
+<p>Most investors have incentives to reduce systemic risk.</p>
+<p>ESG data would also help implement standard interventions.</p>
+</div>
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/mirthbottle/dataintervention">Data Intervention</a> is maintained by <a href="https://github.com/mirthbottle">mirthbottle</a>.</span>
 
@@ -58,128 +79,33 @@ Data Intervention Tools</h3>
     </section>
 
     <script>
-      var svgCont = d3.select("#externality").append("svg")
-      .attr("width", 700)
-      .attr("height", 500);
+      var svgCont = create_container();
 
-      var demand = svgCont.append("line")
-      .attr("x1", 50)
-      .attr("y1", 80)
-      .attr("x2", 650)
-      .attr("y2", 420)
-      .attr("stroke-width", 5)
-      .attr("stroke", "#888");
+      var progress = 0;
+      document.getElementById("externality").onclick =  function() {
+      if (progress == 0){
+      draw_QP(svgCont);
+      }
+      else if (progress == 1){
+      draw_externality(svgCont);
+      }
+      else if (progress == 2){
+      draw_exQP(svgCont);
+      }
+      else{
+      svgCont.remove();
+      svgCont = create_container();
+      progress = -1;
+      }
+      progress++;
+      };
 
-      var supply = svgCont.append("line")
-      .attr("x1", 50)
-      .attr("y1", 420)
-      .attr("x2", 620)
-      .attr("y2", 120)
-      .attr("stroke-width", 5)
-      .attr("stroke", "#aa6765");
-
-      var supplyex = svgCont.append("line")
-      .attr("x1", 50)
-      .attr("y1", 350)
-      .attr("x2", 620)
-      .attr("y2", 50)
-      .style("stroke-dasharray", ("3, 3"))
-      .attr("stroke-width", 5)
-      .attr("stroke", "#aa6765");
-
-      var quantity = svgCont.append("line")
-      .attr("x1", 361)
-      .attr("y1", 258)
-      .attr("x2", 361)
-      .attr("y2", 475)
-      .attr("stroke-width", 6)
-      .attr("stroke", "#D5B4B3");
-
-      var quantityex = svgCont.append("line")
-      .attr("x1", 298)
-      .attr("y1", 220)
-      .attr("x2", 298)
-      .attr("y2", 475)
-      .style("stroke-dasharray", ("3, 3"))
-      .attr("stroke-width", 6)
-      .attr("stroke", "#D5B4B3");
-
-      svgCont.append("text")
-      .attr("transform", "translate(352,494)")
-      .style("font-size", "24px")
-      .style("fill", "#D5B4B3")
-      .style("font-weight", "bold")
-      .text("Q");
-
-      svgCont.append("text")
-      .attr("transform", "translate(289,494)")
-      .style("font-size", "24px")
-      .style("fill", "#D5B4B3")
-      .style("font-weight", "bold")
-      .text("Q*");
-
-      var price = svgCont.append("line")
-      .attr("x1", 28)
-      .attr("y1", 258)
-      .attr("x2", 361)
-      .attr("y2", 258)
-      .attr("stroke-width", 6)
-      .attr("stroke", "#639B3D");
-
-      var priceex = svgCont.append("line")
-      .attr("x1", 28)
-      .attr("y1", 220)
-      .attr("x2", 298)
-      .attr("y2", 220)
-      .style("stroke-dasharray", ("3, 3"))
-      .attr("stroke-width", 6)
-      .attr("stroke", "#639B3D");
-
-      svgCont.append("text")
-      .attr("transform", "translate(0,266)")
-      .style("font-size", "24px")
-      .style("fill", "#639B3D")
-      .style("font-weight", "bold")
-      .text("P");
-
-      svgCont.append("text")
-      .attr("transform", "translate(0,226)")
-      .style("font-size", "24px")
-      .style("fill", "#639B3D")
-      .style("font-weight", "bold")
-      .text("P*");
-
-      var yaxis = svgCont.append("line")
-      .attr("x1", 30)
-      .attr("y1", 40)
-      .attr("x2", 30)
-      .attr("y2", 470)
-      .attr("stroke-width", 3)
-      .attr("stroke", "#bbb");
-      
-      var xaxis = svgCont.append("line")
-      .attr("x1", 30)
-      .attr("y1", 470)
-      .attr("x2", 690)
-      .attr("y2", 470)
-      .attr("stroke-width", 3)
-      .attr("stroke", "#bbb");
- 
-      
-      svgCont.append("text")
-      .attr("transform", "translate(0,20)")
-      .attr("dy", "14px")
-      .style("fill", "#639B3D")
-      .style("font-weight", "bold")
-      .text("Price");
-
-      svgCont.append("text")
-      .attr("transform", "translate(620,475)")
-      .attr("dy", "14px")
-      .style("fill", "#4C3D99")
-      .style("font-weight", "bold")
-      .text("Quantity");
-
+      document.getElementById("pagehead").onclick = function(){
+      slides = document.getElementsByClassName("slide");
+      for(var i=0; i< slides.length; i++){
+		      slides[i].setAttribute("margin-bottom", "20px");
+		      }
+      }
     </script>
   
   </body>

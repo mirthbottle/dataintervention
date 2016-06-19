@@ -16,8 +16,7 @@ a {
     text-decoration: underline; }
 
 .slide {
-  margin-bottom: 200px;
-  //height:500px;
+  margin-bottom: 300px;
 }
 
 .btn {
